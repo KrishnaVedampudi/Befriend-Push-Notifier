@@ -1,5 +1,4 @@
-x12 = null;
-Ithink = null;
+var x12;
 window.OneSignal = window.OneSignal || [];
 OneSignal.push(function() {
   OneSignal.init({
@@ -14,41 +13,7 @@ OneSignal.push(function() {
      "url": "https://www.google.com" 
     }
   });
-  });
-  Ithink = null;
-  function sendMessage (Ithink)
-     {         
-    var xpy =  localStorage.getItem(Ithink);
-     OneSignal.getUserId(function() {                    
-          web_buttons=[
-           {
-           "id":"Yes",
-           "text":"I am willing" 
-           },
-           {
-             "id":"NO",
-             "text":"I am not willing"
-           }]                 
-          const body = {    
-           "app_id": "2e7a2add-017c-4365-8d3c-9ffe6b62582f",
-           "include_player_ids":[xpy],
-           "channel_for_external_user_ids": "push",
-           "data": {"foo": "bar"},           
-           "contents": {"en": "Hello, someone is waiting for you!!!! If you want to aceept the job request, click on I am willing"},
-           "web_buttons": web_buttons
-          }           
-          fetch('https://onesignal.com/api/v1/notifications', {
-                  method: 'POST',
-                 body: JSON.stringify(body),
-                  headers: {               
-                     'Content-type': 'application/json; charset=UTF-8',
-                     'Authorization': 'Basic YzE0ZDk1NzYtYTExNS00YmMzLTk4ZWItMWFlOTNiNzA5NTJm'}
-             }).then(response => response.json())
-              .then(json => {
-                 console.log(json);
-              });
-            });
-     } 
+  }); 
   OneSignal.setSubscription(true);
   OneSignal.getUserId(function(userId,x12)
     {      
@@ -58,28 +23,47 @@ OneSignal.push(function() {
       }else{      
       ThunkableWebviewerExtension.postMessage(userId);
       }
-    });     
-    
-    
-ThunkableWebviewerExtension.receiveMessage(function(message,x12,Ithink) {
-      Ithink = message;    
-x12 = 1;
-if(message == null){
-  console.log(message);
-}else{
-    var ty = localStorage.getItem(message);
-      if(ty == null){
-      OneSignal.getUserId(function(userId){    
-      localStorage.setItem(message,userId);
-      });
-    }else{      
-      sendMessage(Ithink);
+    });           
+  function sendMessage()
+      {     
+        ThunkableWebviewerExtension.receiveMessage(function(message,x12) {      
+          x12 = 1;
+          if(message == null){
+            console.log(message);
+          }else{  
+            OneSignal.getUserId(function() {                    
+              web_buttons=[
+               {
+               "id":"Yes",
+               "text":"I am willing" 
+               },
+               {
+                 "id":"NO",
+                 "text":"I am not willing"
+               }]                 
+              const body = {    
+               "app_id": "2e7a2add-017c-4365-8d3c-9ffe6b62582f",
+               "include_player_ids":[message],
+               "channel_for_external_user_ids": "push",
+               "data": {"foo": "bar"},           
+               "contents": {"en": "Hello, someone is waiting for you!!!! If you want to aceept the job request, click on I am willing"},
+               "web_buttons": web_buttons
+              }           
+              fetch('https://onesignal.com/api/v1/notifications', {
+                      method: 'POST',
+                     body: JSON.stringify(body),
+                      headers: {               
+                         'Content-type': 'application/json; charset=UTF-8',
+                         'Authorization': 'Basic YzE0ZDk1NzYtYTExNS00YmMzLTk4ZWItMWFlOTNiNzA5NTJm'}
+                 }).then(response => response.json())
+                  .then(json => {
+                     console.log(json);
+                  });});}});}    
+      
       OneSignal.push(["addListenerForNotificationOpened", function(event) {       
         if (event.action === 'Yes') {       
           ThunkableWebviewerExtension.postMessage(ty);          
         } else if (event.action === 'No') {                 
           alert("Thanks for your immediate reply");                
         }
-      }]);
-    }}});
-     
+      }]);  
