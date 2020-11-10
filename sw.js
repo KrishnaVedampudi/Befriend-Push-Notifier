@@ -1,3 +1,5 @@
+x12 = null;
+Ithink = null;
 window.OneSignal = window.OneSignal || [];
 OneSignal.push(function() {
   OneSignal.init({
@@ -13,21 +15,10 @@ OneSignal.push(function() {
     }
   });
   });
-  var x12;
-  OneSignal.setSubscription(true);
-  OneSignal.getUserId(function(userId,x12)
-    {      
-      if(x12 == 1){
-        console.log(x12);
-        x12 = 0;        
-      }else{      
-      ThunkableWebviewerExtension.postMessage(userId);
-      }
-    });  
-    ThunkableWebviewerExtension.receiveMessage(function(message,x12) {
-       function sendMessage ()
+  Ithink = null;
+  function sendMessage (Ithink)
      {         
-    var xpy =  localStorage.getItem(message);
+    var xpy =  localStorage.getItem(Ithink);
      OneSignal.getUserId(function() {                    
           web_buttons=[
            {
@@ -57,7 +48,21 @@ OneSignal.push(function() {
                  console.log(json);
               });
             });
-          }
+     } 
+  OneSignal.setSubscription(true);
+  OneSignal.getUserId(function(userId,x12)
+    {      
+      if(x12 == 1){
+        console.log(x12);
+        x12 = 0;        
+      }else{      
+      ThunkableWebviewerExtension.postMessage(userId);
+      }
+    });     
+    
+    
+ThunkableWebviewerExtension.receiveMessage(function(message,x12,Ithink) {
+      Ithink = message;    
 x12 = 1;
 if(message == null){
   console.log(message);
@@ -67,18 +72,14 @@ if(message == null){
       OneSignal.getUserId(function(userId){    
       localStorage.setItem(message,userId);
       });
-    }else{     
-      sendMessage();
+    }else{      
+      sendMessage(Ithink);
       OneSignal.push(["addListenerForNotificationOpened", function(event) {       
-        if (event.action === 'Yes') { 
-      
-          ThunkableWebviewerExtension.postMessage(ty);
-          
-        } else if (event.action === 'No') {
-          
-          //if no one clicks the yes then it will send thanks for your immediate reply!
+        if (event.action === 'Yes') {       
+          ThunkableWebviewerExtension.postMessage(ty);          
+        } else if (event.action === 'No') {                 
           alert("Thanks for your immediate reply");                
         }
       }]);
     }}});
-    
+     
