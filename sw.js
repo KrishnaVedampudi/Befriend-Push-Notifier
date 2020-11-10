@@ -25,17 +25,7 @@ OneSignal.push(function() {
       }
     });  
     ThunkableWebviewerExtension.receiveMessage(function(message,x12) {
-x12 = 1;
-if(message == null){
-  console.log(message);
-}else{
-    var ty = localStorage.getItem(message);
-      if(ty == null){
-      OneSignal.getUserId(function(userId){    
-      localStorage.setItem(message,userId);
-      });
-    }else{
-      function sendMessage ()
+       function sendMessage ()
      {         
     var xpy =  localStorage.getItem(message);
      OneSignal.getUserId(function() {                    
@@ -68,6 +58,16 @@ if(message == null){
               });
             });
           }
+x12 = 1;
+if(message == null){
+  console.log(message);
+}else{
+    var ty = localStorage.getItem(message);
+      if(ty == null){
+      OneSignal.getUserId(function(userId){    
+      localStorage.setItem(message,userId);
+      });
+    }else{     
       sendMessage();
       OneSignal.push(["addListenerForNotificationOpened", function(event) {       
         if (event.action === 'Yes') { 
