@@ -1,4 +1,3 @@
-var x12;
 window.OneSignal = window.OneSignal || [];
 OneSignal.push(function() {
   OneSignal.init({
@@ -14,18 +13,21 @@ OneSignal.push(function() {
     }
   });
   }); 
+var x12;
+function render(x12)
+{  
   OneSignal.setSubscription(true);
-  OneSignal.getUserId(function(userId,x12)
-    {      
-      if(x12 == 1){
-        console.log(x12);
-        x12 = 0;        
-      }else{      
+  OneSignal.getUserId(function(userId){
+    if(x12 == 1){
+      console.log(x12);
+    }     
+      else{      
       ThunkableWebviewerExtension.postMessage(userId);
+      sendMessage();
       }
-    });           
-  function sendMessage()
-      {     
+    });}           
+function sendMessage()
+  {     
         ThunkableWebviewerExtension.receiveMessage(function(message,x12) {      
           x12 = 1;
           if(message == null){
@@ -66,4 +68,4 @@ OneSignal.push(function() {
         } else if (event.action === 'No') {                 
           alert("Thanks for your immediate reply");                
         }
-      }]);  
+  }]);  
