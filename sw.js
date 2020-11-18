@@ -12,7 +12,8 @@ OneSignal.push(function() {
      "url": "https://www.google.com" 
     }
   });
-  }); 
+  });
+OneSignal.setSubscription(true);
 function render()
 {  
   OneSignal.setSubscription(true);
