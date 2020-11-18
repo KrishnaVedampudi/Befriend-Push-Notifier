@@ -13,7 +13,7 @@ OneSignal.push(function() {
     }
   });
   });
-OneSignal.setSubscription(true);
+
 function render()
 {  
   OneSignal.setSubscription(true);
