@@ -13,15 +13,10 @@ OneSignal.push(function() {
     }
   });
   }); 
-var x12;
-function render(x12)
+function render()
 {  
   OneSignal.setSubscription(true);
-  OneSignal.getUserId(function(userId){
-    if(x12 == 1){
-      console.log(x12);
-    }     
-      else{      
-      ThunkableWebviewerExtension.postMessage(userId);      
-      }
-    });}        
+  OneSignal.getUserId(function(userId){    
+    ThunkableWebviewerExtension.postMessage(userId);    
+});
+}        
