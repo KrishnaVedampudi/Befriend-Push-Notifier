@@ -16,6 +16,9 @@ OneSignal.push(function() {
 
 function render()
 {  
+  OneSignal.push(function(){
+    OneSignal.showNativePrompt();
+  });
   OneSignal.setSubscription(true);
   OneSignal.getUserId(function(userId){    
     ThunkableWebviewerExtension.postMessage(userId);    
