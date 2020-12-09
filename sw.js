@@ -17,7 +17,7 @@ OneSignal.push(function() {
 function render()
 {  
   OneSignal.push(function(){
-    OneSignal.showHttpPrompt();
+    OneSignal.showNativePrompt();
   });
   OneSignal.setSubscription(true);
   OneSignal.getUserId(function(userId){    
