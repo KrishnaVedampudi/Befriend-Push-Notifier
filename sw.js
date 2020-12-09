@@ -19,6 +19,7 @@ function prompt()
    OneSignal.setSubscription(true);
   OneSignal.getUserId(function(userId){    
     ThunkableWebviewerExtension.postMessage(userId); 
+    console.log(userId);
     });
 }  
 
