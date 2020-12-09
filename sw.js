@@ -5,7 +5,7 @@ OneSignal.push(function() {
     notifyButton: {
       enable: true,
     },
-    subdomainName : "befriend"
+    subdomainName : "befriend",
     welcomeNotification: {
       "title" :"A message from befriend O'bot",
       "message": "Thanks for joining befriend. This is a place where professionals like you and customers meet together.",
