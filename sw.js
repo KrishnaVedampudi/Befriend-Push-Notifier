@@ -14,13 +14,17 @@ OneSignal.push(function() {
   });
   });
 
+function prompt()
+{
+   OneSignal.setSubscription(true);
+  OneSignal.getUserId(function(userId){    
+    ThunkableWebviewerExtension.postMessage(userId); 
+    });
+}  
+
 function render()
 {  
   OneSignal.push(function(){
     OneSignal.showNativePrompt();
   });
-  OneSignal.setSubscription(true);
-  OneSignal.getUserId(function(userId){    
-    ThunkableWebviewerExtension.postMessage(userId);    
-});
 }        
