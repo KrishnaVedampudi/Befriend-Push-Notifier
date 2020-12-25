@@ -31,23 +31,15 @@ ThunkableWebviewerExtension.receiveMessage(function(message)
            });
       }
   }else
-  {
-    
-    console.log('no external user id was given')
-  }  
-  });
-
-
-function prompt()
-{
-   OneSignal.setSubscription(true);
- 
-}  
+    {    
+      console.log('no external user id was given')
+    }  
+  });  
 
 function render()
 {  
   OneSignal.push(function(){
     OneSignal.showNativePrompt();
   });  
-  prompt();
+
 }        
