@@ -18,13 +18,11 @@ ThunkableWebviewerExtension.receiveMessage(function(message)
   {
   if(message != null)
   {     
-      x = message;
-      OneSignal.getUserId(function(userId)
-        {     
-          console.log(userId);    
+      x = message;   
+          Onesignal.push(function(){          
           OneSignal.setExternalUserId(x);
-          ThunkableWebviewerExtension.postMessage('done');
-           });      
+        });
+     ThunkableWebviewerExtension.postMessage('done');              
   }else
     {    
       console.log('no external user id was given')
