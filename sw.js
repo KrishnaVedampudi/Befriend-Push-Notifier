@@ -1,3 +1,4 @@
+var x = "";
 window.OneSignal = window.OneSignal || [];
 OneSignal.push(function() {
   OneSignal.init({
@@ -13,13 +14,19 @@ OneSignal.push(function() {
     }
   });
   });
+ThunkableWebviewerExtension.receiveMessage(function(message)
+  {
+     x = message;
+  });
+
 
 function prompt()
 {
    OneSignal.setSubscription(true);
-  OneSignal.getUserId(function(userId){    
-    ThunkableWebviewerExtension.postMessage(userId); 
+  OneSignal.getUserId(function(userId){   
+   
     console.log(userId);
+    OneSignal.setExternalUserId();
     });
 }  
 
