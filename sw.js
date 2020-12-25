@@ -17,19 +17,14 @@ OneSignal.push(function() {
 ThunkableWebviewerExtension.receiveMessage(function(message)
   {
   if(message != null)
-  {
-     if(message != yes)
-      {
-         x = message;
-      }else
-      {
-         OneSignal.getUserId(function(userId)
-           {     
-             console.log(userId);    
-             OneSignal.setExternalUserId(x);
-           ThunkableWebviewerExtension.postMessage('done');
-           });
-      }
+  {     
+      x = message;
+      OneSignal.getUserId(function(userId)
+        {     
+          console.log(userId);    
+          OneSignal.setExternalUserId(x);
+          ThunkableWebviewerExtension.postMessage('done');
+           });      
   }else
     {    
       console.log('no external user id was given')
