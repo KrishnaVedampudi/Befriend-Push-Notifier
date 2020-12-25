@@ -25,8 +25,8 @@ function prompt()
    OneSignal.setSubscription(true);
   OneSignal.getUserId(function(userId){   
    
-    console.log(userId);
-    OneSignal.setExternalUserId();
+    console.log(userId);    
+    OneSignal.setExternalUserId(x);
     });
 }  
 
