@@ -34,6 +34,6 @@ function render()
 {  
   OneSignal.push(function(){
     OneSignal.showNativePrompt();
-  });
+  });  
   prompt();
 }        
