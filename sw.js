@@ -16,18 +16,32 @@ OneSignal.push(function() {
   });
 ThunkableWebviewerExtension.receiveMessage(function(message)
   {
-     x = message;
+  if(message != null)
+  {
+     if(message != yes)
+      {
+         x = message;
+      }else
+      {
+         OneSignal.getUserId(function(userId)
+           {     
+             console.log(userId);    
+             OneSignal.setExternalUserId(x);
+           ThunkableWebviewerExtension.postMessage('done');
+           });
+      }
+  }else
+  {
+    
+    console.log('no external user id was given')
+  }  
   });
 
 
 function prompt()
 {
    OneSignal.setSubscription(true);
-  OneSignal.getUserId(function(userId){   
-   
-    console.log(userId);    
-    OneSignal.setExternalUserId(x);
-    });
+ 
 }  
 
 function render()
