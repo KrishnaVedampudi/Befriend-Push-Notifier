@@ -20,8 +20,8 @@ promptOptions: {
     },
     unsubscribeEnabled: false,
   }
-}
-    subdomainName : "befriend",
+},
+    subdomainName : "mk-mahikrish",
     welcomeNotification: {
       "title" :"A message from befriend O'bot",
       "message": "Thanks for joining befriend. This is a place where professionals like you and customers meet together.",
