@@ -23,22 +23,19 @@ ThunkableWebviewerExtension.receiveMessage(function(message)
        OneSignal.isPushNotificationsEnabled(function(isEnabled)
            {
               if(isEnabled == true)
-              {
+                {
                  OneSignal.push(function(userId)                                    
                    {
                      ThunkableWebviewerExtension.postMessage(userId);
                   });
-              }else
-              {
-                console.log('user not subscribed');
-                ThunkableWebviewerExtension.postMessage('not subscribed');
-              }
+               }else
+                {
+                  console.log('user not subscribed');
+                  ThunkableWebviewerExtension.postMessage('not subscribed');
+                }
           });
-     });
- 
-   
-               
-  }else
+     });    
+    }else
     {    
       console.log('no call was recieved');
     }  
