@@ -18,7 +18,7 @@ promptOptions: {
       unsubscribe: "Unsubscribe from push notifications", 
       explanation: "Hi, Please click Recieve job requests so that any customer will notify you if they need you", /* Optional text appearing before the prompt button */
     },
-    unsubscribeEnabled: false,
+    unsubscribeEnabled: true,
   }
 },
     subdomainName : "mk-mahikrish",
