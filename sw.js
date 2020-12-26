@@ -56,10 +56,3 @@ ThunkableWebviewerExtension.receiveMessage(function(message)
     }  
   });  
 
-function render()
-{  
-  OneSignal.push(function(){
-    OneSignal.showNativePrompt();
-  });  
-
-}        
