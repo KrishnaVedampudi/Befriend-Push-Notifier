@@ -45,8 +45,7 @@ ThunkableWebviewerExtension.receiveMessage(function(message)
                   });
                }else
                 {
-                  console.log('user not subscribed');
-                  ThunkableWebviewerExtension.postMessage('not subscribed');
+                  console.log('user not subscribed');                  
                 }
           });
      });    
