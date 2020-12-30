@@ -34,27 +34,23 @@ OneSignal.push(function()
 });
 ThunkableWebviewerExtension.receiveMessage(function(message)
   {
-  if(message != null)
+  if(message == "for testing")
   {  
     OneSignal.push(function()
-     {    
-       OneSignal.isPushNotificationsEnabled(function(isEnabled)
-           {
-              if(isEnabled == true)
-                {
-                 OneSignal.push(function(userId)                                    
-                   {
-                     ThunkableWebviewerExtension.postMessage(userId);
-                  });
-               }else
-                {
-                  console.log('user not subscribed');                  
-                }
-          });
-     });    
+     {   
+       OneSignal.push(function(userId)                                    
+         {
+            ThunkableWebviewerExtension.postMessage(userId);
+         });              
+       });       
     }else
     {    
-      console.log('no call was recieved');
-    }  
+      OneSignal.push(function()
+       {   
+         OneSignal.push(function(userId)                                    
+          {
+            ThunkableWebviewerExtension.postMessage(userId);
+         });              
+       });       
+     }  
   });  
-
