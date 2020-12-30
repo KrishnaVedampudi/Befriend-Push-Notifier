@@ -43,14 +43,5 @@ ThunkableWebviewerExtension.receiveMessage(function(message)
             ThunkableWebviewerExtension.postMessage(userId);
          });              
        });       
-    }else
-    {    
-      OneSignal.push(function()
-       {   
-         OneSignal.push(function(userId)                                    
-          {
-            ThunkableWebviewerExtension.postMessage(userId);
-         });              
-       });       
-     }  
+    }      
   });  
