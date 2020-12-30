@@ -30,7 +30,7 @@ promptOptions: {
   });
 OneSignal.push(function()
 {
-  OneSignal.showSlideDownPrompt();
+  OneSignal.showSlidedownPrompt();
 });
 ThunkableWebviewerExtension.receiveMessage(function(message)
 {
