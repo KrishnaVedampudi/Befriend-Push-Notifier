@@ -27,11 +27,6 @@ promptOptions: {
      "url": "https://www.google.com" 
     }
   });
-  });
-OneSignal.push(function()
-{
-  OneSignal.showSlidedownPrompt();
-});
 ThunkableWebviewerExtension.receiveMessage(function(message)
 {
     OneSignal.push(function()
