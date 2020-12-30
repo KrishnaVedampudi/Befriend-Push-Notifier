@@ -38,7 +38,7 @@ ThunkableWebviewerExtension.receiveMessage(function(message)
   {  
     OneSignal.push(function()
      {   
-       OneSignal.push(function(userId)                                    
+       OneSignal.getUserId(function(userId)                                    
          {
             ThunkableWebviewerExtension.postMessage(userId);
          });              
