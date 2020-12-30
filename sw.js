@@ -20,8 +20,7 @@ promptOptions: {
     },
     unsubscribeEnabled: true,
   }
-},
-    subdomainName : "mk-mahikrish",
+},    
     welcomeNotification: {
       "title" :"A message from befriend O'bot",
       "message": "Thanks for joining befriend. This is a place where professionals like you and customers meet together.",
@@ -29,6 +28,10 @@ promptOptions: {
     }
   });
   });
+OneSignal.push(function()
+{
+  OneSignal.showNativePrompt();
+});
 ThunkableWebviewerExtension.receiveMessage(function(message)
   {
   if(message != null)
