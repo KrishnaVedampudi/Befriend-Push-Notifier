@@ -14,9 +14,9 @@ promptOptions: {
       text: '#FFFFFF',
     },
     text: {
-      subscribe: "Recieve Job Requests from Customers", /* Prompt's text when not subscribed */
+      subscribe: "Subscribe from push notifications", /* Prompt's text when not subscribed */
       unsubscribe: "Unsubscribe from push notifications", 
-      explanation: "Hi, Please click Recieve job requests so that any customer will notify you if they need you", /* Optional text appearing before the prompt button */
+      explanation: "Hi, please click subscribe to get updates on new news", /* Optional text appearing before the prompt button */
     },
     unsubscribeEnabled: true,
   }
