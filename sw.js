@@ -27,6 +27,7 @@ promptOptions: {
      "url": "https://www.google.com" 
     }
   });
+});
 ThunkableWebviewerExtension.receiveMessage(function(message)
 {
     OneSignal.push(function()
