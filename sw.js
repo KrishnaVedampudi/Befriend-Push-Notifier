@@ -33,15 +33,21 @@ OneSignal.push(function()
   OneSignal.showNativePrompt();
 });
 ThunkableWebviewerExtension.receiveMessage(function(message)
-  {
-  if(message == "for testing")
-  {  
+{
     OneSignal.push(function()
-     {   
-       OneSignal.getUserId(function(userId)                                    
+      {
+      OneSignal.isPushNotificationsEnabled(function(isEnabled)
          {
-            ThunkableWebviewerExtension.postMessage(userId);
-         });              
-       });       
-    }      
-  });  
+             if(message == "for testing" && isEnabled == true)
+                 {  
+                    OneSignal.push(function()
+                        {   
+                            OneSignal.getUserId(function(userId)                                    
+                                {
+                                    ThunkableWebviewerExtension.postMessage(userId);
+                                });              
+                        });      
+                 }      
+         });
+     });
+ });  
